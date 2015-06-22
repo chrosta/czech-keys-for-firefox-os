@@ -1,0 +1,117 @@
+html {
+  height: 100%;
+  margin: 0px;
+}
+body {
+  display: table; 
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  border: 0px solid black;
+}
+
+#appHeader {
+  display: block;
+  width: 100%;
+  max-height: 48px;
+  margin: 0px;
+  padding: 0px;
+  background: #EAEAE7;
+}
+#appName {
+  display: table-cell;
+  width: 100%;
+  max-height: 48px;
+  text-align: left;
+}
+#appMenu {
+  display: table-cell;
+  max-height: 48px;
+  text-align: right;
+  vertical-align: middle;
+}
+#menuButton {
+  width: 48px;
+  height: 48px;
+  background-size: 100% 100%;
+  background-image: url("/style/images/back.png");
+}
+#menuButton:hover {
+  background-color: #C7C7C7;
+}
+#appBlock {
+  display: table-row;
+  height: 100%;
+  background-color: #F4F4F4;
+}
+#appBody {
+  display: table-cell;
+  height: 100%;
+  background-color: #F4F4F4;
+  text-align: left;
+}
+#appFooter {
+  display: block;
+  height: 43px;
+  background-color: #1C2224;
+}
+
+.menuHead {
+  display: block;
+  height: 2.0rem;
+  background-color: #5F5F5F;
+}
+.menuItem {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #C7C7C7;
+}
+.menuImage {
+  padding-right: 0.5rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  vertical-align: middle;
+}
+
+h1 {
+  font-family: 'Fira Sans';
+  color:#858585;
+  margin:0px;
+  padding:0px;
+  padding-top: 0.9rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: right;
+  font-style: italic;
+}
+h2 {
+  font-family: 'Fira Sans';
+  margin:0px;
+  padding:0px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.4rem;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #F4F4F4;
+}
+p.item {
+  font-family: 'Fira Sans';
+  color: #333333;
+}
+p.description {
+  font-family: 'Fira Sans';
+  font-size: 0.9rem;
+  color: #858585;
+  text-align: justify;
+}
+

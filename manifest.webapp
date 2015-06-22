@@ -1,0 +1,35 @@
+{
+  "name": "Czech national keys",
+  "description": "Basic virtual keyboard that sends specific national characters of czech alphabet (based on test keyboard that is written by The Gaia Team).",
+  "type": "privileged",
+  "role": "input",
+  "launch_path": "/settings.html",
+  "developer": {
+    "name": "Chrosta",
+    "url": "https://github.com/chrosta/app-czech-keys-2015"
+  },
+  "permissions": {
+    "input": {
+      "description": "Send key events and characters to user focused input fields."
+    }
+  },
+  "inputs": {
+    "lol": {
+      "launch_path": "/keyboard.html",
+      "name": "Cz",
+      "description": "Czech keys with specific characters",
+      "types": ["text", "url", "number"]
+    }
+  },
+  "icons": {
+    "30": "/style/icons/icon-30.png",
+    "32": "/style/icons/icon-32.png",
+    "45": "/style/icons/icon-45.png",
+    "60": "/style/icons/icon-60.png",
+    "90": "/style/icons/icon-90.png",
+    "120": "/style/icons/icon-120.png",
+    "128": "/style/icons/icon-128.png",
+    "256": "/style/icons/icon-256.png"
+  },
+  "default_locale": "en-US"
+}
