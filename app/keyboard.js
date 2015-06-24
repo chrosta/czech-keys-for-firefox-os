@@ -1,5 +1,14 @@
 var inputContext = null;
-var keyboardElement;
+var keyboardElement = null;
+// ---
+var functionKeyActiveTextColor = "#00CAF2";
+var functionKeyInactiveTextColor = "#A6A6A6";
+var functionKeyClickTextColor = "#FFFFFF";
+var functionKeyActiveBackgroundColor = "#4D4D4D";
+var functionKeyInactiveBackgroundStyle = "linear-gradient(to bottom, #5b6668, #606b6e)";
+var functionKeyClickBackgroundColor = "#00CAF2";
+var functionKeyBackgroundNone = "none";
+// ---
 
 function init() {
   keyboardElement = document.getElementById('keyboard');
@@ -11,9 +20,9 @@ function init() {
 
   // Prevent loosing focus to the currently focused app.
   // Otherwise, right after mousedown event, the app will receive a focus event.
-  keyboardElement.addEventListener('mousedown', function onMouseDown(evt) {
+  /* keyboardElement.addEventListener('mousedown', function onMouseDown(evt) {
     evt.preventDefault();
-  });
+  }); */
   
   // Handler for general char sendings keys...
   /*
@@ -32,15 +41,28 @@ function init() {
   shiftElement.addEventListener('click', function shiftHandler() {
     if (!shiftKey) {
       shiftKey = true;
-      shiftElement.style.color="#FFFFFF";
-      shiftElement.style.backgroundColor="#00CAF2";
+      shiftElement.style.color = functionKeyClickTextColor;
+      shiftElement.style.background = functionKeyBackgroundNone;
+      shiftElement.style.backgroundColor = functionKeyClickBackgroundColor;
     } else {
       shiftKey = false;
-      shiftElement.style.color="#A6A6A6";
-      shiftElement.style.background="none";
+      shiftElement.style.color = functionKeyInactiveTextColor;
+      shiftElement.style.background = functionKeyInactiveBackgroundStyle;
     }
   });
-  
+  shiftElement.addEventListener('mouseover', function mouseOverHandler() {
+    if (!shiftKey) {
+      shiftElement.style.color = functionKeyActiveTextColor;
+      shiftElement.style.background = functionKeyBackgroundNone;
+      shiftElement.style.backgroundColor = functionKeyActiveBackgroundColor;
+    }
+  });
+  shiftElement.addEventListener('mouseleave', function mouseLeaveHandler() {
+    if (!shiftKey) {
+      shiftElement.style.color = functionKeyInactiveTextColor;
+      shiftElement.style.background = functionKeyInactiveBackgroundStyle;
+    }
+  });
   
   // Handler for general char sendings keys...
   var sendKeyElements = document.getElementsByName('sendKey');
@@ -51,6 +73,11 @@ function init() {
         ch = ch.toLowerCase();
       }
       sendKey(ch.charCodeAt(0));
+      if (shiftKey) {
+        shiftKey = false;
+        shiftElement.style.color = functionKeyInactiveTextColor;
+        shiftElement.style.background = functionKeyInactiveBackgroundStyle;
+      }
     });
   }
   
@@ -64,12 +91,19 @@ function init() {
   // Long press to trigger IME menu...
   var menuTimeout = 0;
   switchElement.addEventListener('touchstart', function longHandler() {
+    switchElement.style.color = functionKeyActiveTextColor;
+    switchElement.style.background = functionKeyBackgroundNone;
+    switchElement.style.backgroundColor = functionKeyActiveBackgroundColor;
+    // ---
     menuTimeout = window.setTimeout(function menuTimeout() {
       var mgmt = navigator.mozInputMethod.mgmt;
       mgmt.showAll();
     }, 700);
   });
   switchElement.addEventListener('touchend', function longHandler() {
+    switchElement.style.color = functionKeyInactiveTextColor;
+    switchElement.style.background = functionKeyInactiveBackgroundStyle;
+    // ---
     clearTimeout(menuTimeout);
   });
 }

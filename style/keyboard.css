@@ -68,7 +68,8 @@ button {
   pointer-events: auto;
   flex: auto;
 }
-.function-key:active {
+/* .function-key:active {
   color: #00CAF2;
+  background: none;
   background-color: #4D4D4D;
-}
+} */
