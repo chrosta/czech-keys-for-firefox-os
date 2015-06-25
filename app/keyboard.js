@@ -37,6 +37,8 @@ function init() {
   
   // Handler for shift key event...
   var shiftKey = false;
+  var shiftLong = false;
+  var shiftTimeout = null;
   var shiftElement = document.getElementById("shiftKey");
   shiftElement.addEventListener('click', function shiftHandler() {
     if (!shiftKey) {
@@ -46,21 +48,32 @@ function init() {
       shiftElement.style.backgroundColor = functionKeyClickBackgroundColor;
     } else {
       shiftKey = false;
+      shiftLong = false;
       shiftElement.style.color = functionKeyInactiveTextColor;
       shiftElement.style.background = functionKeyInactiveBackgroundStyle;
     }
   });
-  shiftElement.addEventListener('mouseover', function mouseOverHandler() {
+  shiftElement.addEventListener('touchstart', function mouseOverHandler() {
     if (!shiftKey) {
       shiftElement.style.color = functionKeyActiveTextColor;
       shiftElement.style.background = functionKeyBackgroundNone;
       shiftElement.style.backgroundColor = functionKeyActiveBackgroundColor;
+      shiftTimeout = window.setTimeout(function menuTimeout() {
+        shiftElement.style.color = functionKeyClickTextColor;
+        shiftElement.style.background = functionKeyBackgroundNone;
+        shiftElement.style.backgroundColor = functionKeyClickBackgroundColor;
+        shiftKey = true;
+        shiftLong = true;
+      }, 700);
     }
   });
-  shiftElement.addEventListener('mouseleave', function mouseLeaveHandler() {
+  shiftElement.addEventListener('touchend', function mouseLeaveHandler() {
     if (!shiftKey) {
-      shiftElement.style.color = functionKeyInactiveTextColor;
-      shiftElement.style.background = functionKeyInactiveBackgroundStyle;
+      if (!shiftLong) {
+        shiftElement.style.color = functionKeyInactiveTextColor;
+        shiftElement.style.background = functionKeyInactiveBackgroundStyle;
+        clearTimeout(shiftTimeout);
+      }
     }
   });
   
@@ -73,10 +86,12 @@ function init() {
         ch = ch.toLowerCase();
       }
       sendKey(ch.charCodeAt(0));
-      if (shiftKey) {
-        shiftKey = false;
-        shiftElement.style.color = functionKeyInactiveTextColor;
-        shiftElement.style.background = functionKeyInactiveBackgroundStyle;
+      if (!shiftLong) {
+        if (shiftKey) {
+          shiftKey = false;
+          shiftElement.style.color = functionKeyInactiveTextColor;
+          shiftElement.style.background = functionKeyInactiveBackgroundStyle;
+        }
       }
     });
   }
