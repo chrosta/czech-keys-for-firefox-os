@@ -6,12 +6,15 @@ var functionKeyInactiveTextColor = "#A6A6A6";
 var functionKeyClickTextColor = "#FFFFFF";
 var functionKeyActiveBackgroundColor = "#4D4D4D";
 var functionKeyInactiveBackgroundStyle = "linear-gradient(to bottom, #5b6668, #606b6e)";
+var functionKeyInactiveBackgroundRepeat = "no-repeat";
+var functionKeyInactiveBackgroundPosition = "right center";
+var functionKeyInactiveBackgroundImage = "url('/style/images/div.png')";
 var functionKeyClickBackgroundColor = "#00CAF2";
 var functionKeyBackgroundNone = "none";
 // ---
 
 function init() {
-  keyboardElement = document.getElementById('keyboard');
+  keyboardElement = document.getElementById('keyboardDesk');
   window.addEventListener('resize', resizeWindow);
   window.navigator.mozInputMethod.oninputcontextchange = function() {
     inputContext = navigator.mozInputMethod.inputcontext;
@@ -59,9 +62,9 @@ function init() {
   });
   
   // Binding handlers on letter keys...
-  var sendKeyElements = document.getElementsByName('sendKey');
-  for (var i = 0; i < sendKeyElements.length; i++) {
-    sendKeyElements[i].addEventListener('click', function sendKeyHandler(e) {
+  var letterKeyElements = document.getElementsByName('letterKey');
+  for (var i = 0; i < letterKeyElements.length; i++) {
+    letterKeyElements[i].addEventListener('click', function letterKeyHandler(e) {
       ch = (e.target).innerHTML;
       if (!shiftKey) {
         ch = ch.toLowerCase();
@@ -77,7 +80,7 @@ function init() {
   }
   
   // Handler for switch layout button...
-  var switchElement = document.getElementById('switchLayout');
+  var switchElement = document.getElementById('switchKey');
   switchElement.addEventListener('click', function switchHandler() {
     var mgmt = navigator.mozInputMethod.mgmt;
     mgmt.next();
@@ -127,6 +130,9 @@ function styleAsActiveFunctionKey(keyEl) {
 function styleAsInactiveFunctionKey(keyEl) {
   keyEl.style.color = functionKeyInactiveTextColor;
   keyEl.style.background = functionKeyInactiveBackgroundStyle;
+  keyEl.style.backgroundRepeat = functionKeyInactiveBackgroundRepeat;
+  keyEl.style.backgroundPosition = functionKeyInactiveBackgroundPosition;
+  keyEl.style.backgroundImage = functionKeyInactiveBackgroundImage;
 }
 
 function styleAsClickFunctionKey(keyEl) {

@@ -1,6 +1,6 @@
 {
   "name": "Czech national keys",
-  "description": "Basic virtual keyboard that sends specific national characters of czech alphabet (based on test keyboard that is written by The Gaia Team).",
+  "description": "Basic virtual keyboard that sends specific national characters of czech alphabet (free based on source code by The Gaia Team).",
   "type": "privileged",
   "role": "input",
   "launch_path": "/settings.html",

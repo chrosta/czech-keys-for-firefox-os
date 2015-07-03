@@ -1,4 +1,4 @@
-document.getElementById('appMenu').addEventListener('click', function() {
+document.getElementById('appMenuCell').addEventListener('click', function() {
   document.addEventListener('visibilitychange', function() {
     window.close();
   });
