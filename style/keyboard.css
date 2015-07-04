@@ -40,34 +40,41 @@ body {
   height: 100%;
   vertical-align: middle;
   font-size: 1em;
-}
-.wrapperKeyCell {
-  display: table-cell;
-  line-height: 3.2em;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1em;
   background: linear-gradient(to bottom, #5B6668, #606B6E);
 }
 .letterKeyCell {
-  width: 1.34em;
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  width: 10%;
+  height: 2.1em;
   font-family: 'Fira Sans';
   font-size: 1.5em;
   text-align: center;
   vertical-align: middle;
+  border: none;
+  border-radius: 0;
   color: #FFFFFF;
+  background: none;
   background-repeat: no-repeat;
   background-position: right center;
   background-image: url('/style/images/div.png');
   pointer-events: auto;
 }
 .functionKeyCell {
-  width: 4.5em;
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  height: 100%;
   font-family: 'Fira Sans';
   font-size: 1.1em;
   text-align: center;
   vertical-align: middle;
+  border: none;
+  border-radius: 0;
   color: #A6A6A6;
+  background: none;
   background-repeat: no-repeat;
   background-position: right center;
   background-image: url('/style/images/div.png');
