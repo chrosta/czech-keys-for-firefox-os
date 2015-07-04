@@ -32,32 +32,27 @@ function init() {
   var shiftLong = false;
   var shiftTimeout = null;
   var shiftElement = document.getElementById("shiftKey");
-  shiftElement.addEventListener('click', function shiftHandler(e) {
-    if (!shiftKey) {
-      shiftKey = true;
-      styleAsClickFunctionKey(e.target);
-    } else {
+  shiftElement.addEventListener('touchstart', function mouseOverHandler(e) {
+    if (shiftKey) {
       shiftKey = false;
       shiftLong = false;
-      styleAsInactiveFunctionKey(e.target);
-    }
-  });
-  shiftElement.addEventListener('touchstart', function mouseOverHandler(e) {
-    if (!shiftKey) {
+    } else {
+      shiftKey = true;
       styleAsActiveFunctionKey(e.target);
       shiftTimeout = window.setTimeout(function menuTimeout() {
-        shiftKey = true;
         shiftLong = true;
         styleAsClickFunctionKey(e.target);
       }, 700);
     }
   });
   shiftElement.addEventListener('touchend', function mouseLeaveHandler(e) {
-    if (!shiftKey) {
+    if (shiftKey) {
+      styleAsClickFunctionKey(e.target);
       if (!shiftLong) {
-        styleAsInactiveFunctionKey(e.target);
         clearTimeout(shiftTimeout);
       }
+    } else {
+      styleAsInactiveFunctionKey(e.target);
     }
   });
   
