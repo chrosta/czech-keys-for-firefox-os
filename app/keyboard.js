@@ -23,9 +23,9 @@ function init() {
 
   // Prevent loosing focus to the currently focused app.
   // Otherwise, right after mousedown event, the app will receive a focus event.
-  /* keyboardElement.addEventListener('mousedown', function onMouseDown(evt) {
+  keyboardElement.addEventListener('mousedown', function onMouseDown(evt) {
     evt.preventDefault();
-  }); */
+  });
   
   // Handler for shift key event...
   var shiftKey = false;

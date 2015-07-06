@@ -14,9 +14,9 @@
     }
   },
   "inputs": {
-    "lol": {
+    "cz": {
       "launch_path": "/keyboard.html",
-      "name": "Cz",
+      "name": "České klávesy",
       "description": "Czech keys with specific characters",
       "types": ["text", "url", "number"]
     }
