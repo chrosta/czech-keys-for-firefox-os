@@ -1,5 +1,5 @@
 {
-  "name": "Czech national keys",
+  "name": "Czech keys",
   "description": "Basic virtual keyboard that sends specific national characters of czech alphabet (free based on source code by The Gaia Team).",
   "type": "privileged",
   "role": "input",
