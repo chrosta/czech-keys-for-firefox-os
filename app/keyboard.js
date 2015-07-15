@@ -1,4 +1,5 @@
 var inputContext = null;
+var keyboardBody = null;
 var keyboardElement = null;
 // ---
 var functionKeyActiveTextColor = "#00CAF2";
@@ -12,26 +13,66 @@ var functionKeyInactiveBackgroundImage = "url('/style/images/div.png')";
 var functionKeyClickBackgroundColor = "#00CAF2";
 var functionKeyBackgroundNone = "none";
 // ---
+function resizeWindow() {
+  window.resizeTo(document.getElementById('keyboardBody').innerWidth, keyboardElement.clientHeight);
+}
+function sendKey(keyCode) {
+  switch (keyCode) {
+  case KeyEvent.DOM_VK_BACK_SPACE:
+  case KeyEvent.DOM_VK_RETURN:
+    if (inputContext) {
+      inputContext.sendKey(keyCode, 0, 0);
+    }
+    break;
+    default:
+      if (inputContext) {
+        inputContext.sendKey(0, keyCode, 0);
+      }
+      break;
+    }
+}
+function styleAsActiveFunctionKey(keyEl) {
+  keyEl.style.color = functionKeyActiveTextColor;
+  keyEl.style.background = functionKeyBackgroundNone;
+  keyEl.style.backgroundColor = functionKeyActiveBackgroundColor;
+}
+function styleAsInactiveFunctionKey(keyEl) {
+  keyEl.style.color = functionKeyInactiveTextColor;
+  keyEl.style.background = functionKeyInactiveBackgroundStyle;
+  keyEl.style.backgroundRepeat = functionKeyInactiveBackgroundRepeat;
+  keyEl.style.backgroundPosition = functionKeyInactiveBackgroundPosition;
+  keyEl.style.backgroundImage = functionKeyInactiveBackgroundImage;
+}
+
+function styleAsClickFunctionKey(keyEl) {
+  keyEl.style.color = functionKeyClickTextColor;
+  keyEl.style.background = functionKeyBackgroundNone;
+  keyEl.style.backgroundColor = functionKeyClickBackgroundColor;
+}
+// ---
 
 function init() {
+  keyboardBody = document.getElementById('keyboardBody');
+  keyboardBody.addEventListener('resize', resizeWindow);
+  
+  // Prevent loosing focus to the currently focused app.
+  // Otherwise, right after mousedown event, the app will receive a focus event.
   keyboardElement = document.getElementById('keyboardDesk');
+  keyboardElement.addEventListener('mousedown', function onMouseDown(evt) {
+    evt.preventDefault();
+  });
+  
   window.addEventListener('resize', resizeWindow);
   window.navigator.mozInputMethod.oninputcontextchange = function() {
     inputContext = navigator.mozInputMethod.inputcontext;
     resizeWindow();
   };
-
-  // Prevent loosing focus to the currently focused app.
-  // Otherwise, right after mousedown event, the app will receive a focus event.
-  keyboardElement.addEventListener('mousedown', function onMouseDown(evt) {
-    evt.preventDefault();
-  });
   
   // Handler for shift key event...
   var shiftKey = false;
   var shiftLong = false;
   var shiftTimeout = null;
-  var shiftElement = document.getElementById("shiftKey");
+  var shiftElement = document.getElementById('shiftKey');
   shiftElement.addEventListener('touchstart', function mouseOverHandler(e) {
     if (shiftKey) {
       shiftKey = false;
@@ -94,46 +135,8 @@ function init() {
     styleAsInactiveFunctionKey(e.target);
     clearTimeout(menuTimeout);
   });
-}
-
-function resizeWindow() {
-  window.resizeTo(window.innerWidth, keyboardElement.clientHeight);
-}
-
-function sendKey(keyCode) {
-  switch (keyCode) {
-  case KeyEvent.DOM_VK_BACK_SPACE:
-  case KeyEvent.DOM_VK_RETURN:
-    if (inputContext) {
-      inputContext.sendKey(keyCode, 0, 0);
-    }
-    break;
-    default:
-      if (inputContext) {
-        inputContext.sendKey(0, keyCode, 0);
-      }
-      break;
-    }
-}
-
-function styleAsActiveFunctionKey(keyEl) {
-  keyEl.style.color = functionKeyActiveTextColor;
-  keyEl.style.background = functionKeyBackgroundNone;
-  keyEl.style.backgroundColor = functionKeyActiveBackgroundColor;
-}
-
-function styleAsInactiveFunctionKey(keyEl) {
-  keyEl.style.color = functionKeyInactiveTextColor;
-  keyEl.style.background = functionKeyInactiveBackgroundStyle;
-  keyEl.style.backgroundRepeat = functionKeyInactiveBackgroundRepeat;
-  keyEl.style.backgroundPosition = functionKeyInactiveBackgroundPosition;
-  keyEl.style.backgroundImage = functionKeyInactiveBackgroundImage;
-}
-
-function styleAsClickFunctionKey(keyEl) {
-  keyEl.style.color = functionKeyClickTextColor;
-  keyEl.style.background = functionKeyBackgroundNone;
-  keyEl.style.backgroundColor = functionKeyClickBackgroundColor;
+  
+  resizeWindow();
 }
 
 window.addEventListener('load', init);
