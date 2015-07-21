@@ -135,8 +135,6 @@ function init() {
     styleAsInactiveFunctionKey(e.target);
     clearTimeout(menuTimeout);
   });
-  
-  resizeWindow();
 }
 
 window.addEventListener('load', init);

@@ -40,8 +40,12 @@
           <div class="menuItem">
             <p class="item">Platba přes PayPal</p>
             <p class="description">
-              Vzhledem k převodním poplatkům se doporučuje částka alespoň 30 Kč.
-              <div id="payPalButton">&nbsp;</div>
+              Vzhledem k převodním poplatkům se doporučuje částka okolo 30 Kč.
+              <form style="width:100%;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="94FYHC5LPMZ4S">
+                <input type="image" id="payPalButton" style="width:100%;" src="/style/images/px.png" name="submit" alt="">
+              </form>
             </p>
           </div>
           <div class="menuItem">

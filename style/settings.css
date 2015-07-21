@@ -74,12 +74,13 @@ body {
 
 #payPalButton {
   padding: .1em;
+  height: 1.2em;
   font-size: 2em;
   color: #333333;
   border-style: solid;
   border-width: 1px;
   border-color: #333333;
-  background-size: 50% 100%;
+  background-size: 50% 85%;
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("/style/images/paypal.png");
