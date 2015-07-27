@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
     <title>České klávesy</title>
     <link href="/style/settings.css" rel="stylesheet" type="text/css">
-    <script src="/app/paypal.js" defer></script>
     <script src="/app/settings.js" defer></script>
   </head>
   <body>
@@ -41,10 +40,10 @@
             <p class="item">Platba přes PayPal</p>
             <p class="description">
               Vzhledem k převodním poplatkům se doporučuje částka okolo 30 Kč.
-              <form style="text-align:center; width:100%;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
+              <form id="payPalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="94FYHC5LPMZ4S">
-                <input type="image" id="payPalButton" style="width:122px; height:34px;" src="/style/images/paypal.png" name="submit" alt="">
+                <input type="image" id="payPalButton" style="width:122px; height:34px;" src="/style/images/paypal.png">
               </form>
             </p>
           </div>

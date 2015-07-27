@@ -72,16 +72,21 @@ body {
   font-size: 1em;
 }
 
-#payPalButton {
-  padding: .1em;
-  height: 1.2em;
-  font-size: 2em;
-  color: #333333;
+#payPalForm {
+  width: 100%;
+  padding-top: .1em;
   border-style: solid;
   border-width: 1px;
   border-color: #333333;
+  text-align: center;
+  vertical-align: middle;
 }
-#payPalButton:active {
+#payPalButton {
+  padding: .1em;
+  font-size: 2em;
+  color: #333333;
+}
+#payPalForm:active {
   color: #F4F4F4;
   background-color: #EAEAE7;
 }

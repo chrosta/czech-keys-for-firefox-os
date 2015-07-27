@@ -9,3 +9,7 @@ document.getElementById('appMenuCell').addEventListener('click', function() {
     }
   });
 });
+
+document.getElementById('payPalForm').addEventListener('click', function() {
+  document.getElementById('payPalForm').submit();
+});
