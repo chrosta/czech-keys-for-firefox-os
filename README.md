@@ -11,3 +11,5 @@ Firefox OS keyboard application for writing specific letters of czech alphabet f
 *
 ---
 V simulátoru je chování klávesnice bez výraznějších problémů (může se objevit problém s překreslením a výškovým roztahováním otevřené aplikace). V reálném telefonu (Alcatel Onetouch Fire E) příležitostně zazlobí výše zmíněné překreslování, psaní velkých písmen, popř. náhle nefunguje psaní. Obojí se jednoduše srovná opakovaným přepnutím klávesnic nebo schováním a opětovným zobrazením anglické klávesnice. Omlouvám se, nepovedlo (alespoň zatím) se mi to vyřešit, ale není to až tak hrozné.
+
+Klávesnice je zdarma, pokud se Vám líbí, prosím, zvažte dobrovolný finanční příspěvěk autorovi přes <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=94FYHC5LPMZ4S">PayPal</a>.
