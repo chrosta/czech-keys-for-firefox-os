@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/chrosta/app-czech-keys-2015/master/style/icons/icon-60.png" width="48" height="48"/>&nbsp;Czech national keys / Česká klávesnice
+<img src="https://raw.githubusercontent.com/chrosta/app-czech-keys-2015/master/style/icons/icon-60.png" width="48" height="48" style="vertical-align:middle;"/>&nbsp;Czech national keys / Česká klávesnice
 ===
 Basic virtual keyboard that sends specific national characters of czech alphabet (based on test keyboard that is written by The Gaia Team).
 
